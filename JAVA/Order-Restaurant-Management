@@ -1,0 +1,200 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JSpinner;
+import javax.swing.JCheckBox;
+
+public class Order extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField txtOrderNo;
+	private JTextField txtItemNo;
+	private JButton btnNewButton;
+	private JButton btnNewButton_1;
+	private JCheckBox chckBeef;
+	private JCheckBox chckFishBurger;
+	private JSpinner spinnerFish;
+	private JCheckBox chckPotatoChips;
+	private JSpinner spinnerChips;
+	private JCheckBox chckDrink;
+	private JSpinner spinnerDrink;
+	private JCheckBox chckVeggie;
+	private JSpinner spinnerVeggie;
+	private JCheckBox chckChickenBurger;
+	private JSpinner spinnerChicken;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Order frame = new Order();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Order() {
+		setTitle("Order");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 649, 421);
+		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 228, 225));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("OrderNo");
+		lblNewLabel.setForeground(new Color(255, 20, 147));
+		lblNewLabel.setFont(new Font("Dialog", Font.PLAIN, 20));
+		lblNewLabel.setBounds(32, 49, 100, 29);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblItemno = new JLabel("ItemNo");
+		lblItemno.setForeground(new Color(255, 20, 147));
+		lblItemno.setFont(new Font("Dialog", Font.PLAIN, 20));
+		lblItemno.setBounds(32, 102, 100, 29);
+		contentPane.add(lblItemno);
+		
+		JLabel lblItemid = new JLabel("Item");
+		lblItemid.setForeground(new Color(255, 20, 147));
+		lblItemid.setFont(new Font("Dialog", Font.PLAIN, 20));
+		lblItemid.setBounds(32, 155, 100, 29);
+		contentPane.add(lblItemid);
+		
+		txtOrderNo = new JTextField();
+		txtOrderNo.setBounds(147, 42, 85, 38);
+		contentPane.add(txtOrderNo);
+		txtOrderNo.setColumns(10);
+		
+		txtItemNo = new JTextField();
+		txtItemNo.setColumns(10);
+		txtItemNo.setBounds(147, 101, 85, 38);
+		contentPane.add(txtItemNo);
+		
+		JSpinner spinnerBeef = new JSpinner();
+		spinnerBeef.setFont(new Font("宋体", Font.PLAIN, 18));
+		spinnerBeef.setBounds(263, 162, 49, 22);
+		contentPane.add(spinnerBeef);
+		
+		chckBeef = new JCheckBox("Beef Burger");
+		chckBeef.setBounds(145, 162, 103, 23);
+		contentPane.add(chckBeef);
+		
+		chckFishBurger = new JCheckBox("Fish Burger");
+		chckFishBurger.setBounds(147, 204, 103, 23);
+		contentPane.add(chckFishBurger);
+		
+		spinnerFish = new JSpinner();
+		spinnerFish.setFont(new Font("宋体", Font.PLAIN, 18));
+		spinnerFish.setBounds(265, 204, 49, 22);
+		contentPane.add(spinnerFish);
+		
+		chckPotatoChips = new JCheckBox("Potato Chips");
+		chckPotatoChips.setBounds(145, 246, 103, 23);
+		contentPane.add(chckPotatoChips);
+		
+		spinnerChips = new JSpinner();
+		spinnerChips.setFont(new Font("宋体", Font.PLAIN, 18));
+		spinnerChips.setBounds(263, 246, 49, 22);
+		contentPane.add(spinnerChips);
+		
+		chckDrink = new JCheckBox("Drink");
+		chckDrink.setBounds(354, 246, 127, 23);
+		contentPane.add(chckDrink);
+		
+		spinnerDrink = new JSpinner();
+		spinnerDrink.setFont(new Font("宋体", Font.PLAIN, 18));
+		spinnerDrink.setBounds(494, 246, 49, 22);
+		contentPane.add(spinnerDrink);
+		
+		chckVeggie = new JCheckBox("Veggie Burger");
+		chckVeggie.setBounds(354, 204, 125, 23);
+		contentPane.add(chckVeggie);
+		
+		spinnerVeggie = new JSpinner();
+		spinnerVeggie.setFont(new Font("宋体", Font.PLAIN, 18));
+		spinnerVeggie.setBounds(494, 204, 49, 22);
+		contentPane.add(spinnerVeggie);
+		
+		chckChickenBurger = new JCheckBox("Chicken Burger");
+		chckChickenBurger.setBounds(354, 162, 127, 23);
+		contentPane.add(chckChickenBurger);
+		
+		spinnerChicken = new JSpinner();
+		spinnerChicken.setFont(new Font("宋体", Font.PLAIN, 18));
+		spinnerChicken.setBounds(494, 162, 49, 22);
+		contentPane.add(spinnerChicken);
+		
+		
+		btnNewButton = new JButton("OK");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String createStr;
+				createStr = "Order created with\n";
+				createStr += "OrderNo: "+ txtOrderNo.getText() + "\n";
+				createStr += "ItemNo: "+ txtItemNo.getText() + "\n";
+				//createStr += "ItemID: "+ txtItem.getText() + "\n";
+				
+				if(chckBeef.isSelected()) {
+					createStr += "Beef Burger: "+spinnerBeef.getValue()+"\n";
+				}
+				if(chckFishBurger.isSelected()) {
+					createStr += "FishBurger: "+spinnerFish.getValue()+"\n";
+				}
+				if(chckPotatoChips.isSelected()) {
+					createStr += "PotatoChips: "+spinnerChips.getValue()+"\n";
+				}
+				if(chckDrink.isSelected()) {
+					createStr += "Drink: "+spinnerDrink.getValue()+"\n";
+				}if(chckVeggie.isSelected()) {
+					createStr += "Veggie Burger: "+spinnerVeggie.getValue()+"\n";
+				}
+				if(chckChickenBurger.isSelected()) {
+					createStr += "ChickenBurger: "+spinnerChicken.getValue()+"\n";
+				}
+				
+				System.out.println(createStr);
+			}
+		});
+		btnNewButton.setBackground(new Color(139, 0, 0));
+		btnNewButton.setForeground(new Color(255, 255, 255));
+		btnNewButton.setFont(new Font("宋体", Font.PLAIN, 20));
+		btnNewButton.setBounds(145, 313, 93, 23);
+		contentPane.add(btnNewButton);
+		
+		btnNewButton_1 = new JButton("Cancel");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		btnNewButton_1.setBackground(new Color(139, 0, 0));
+		btnNewButton_1.setForeground(new Color(255, 255, 255));
+		btnNewButton_1.setFont(new Font("宋体", Font.PLAIN, 20));
+		btnNewButton_1.setBounds(326, 311, 123, 23);
+		contentPane.add(btnNewButton_1);
+		
+		
+	}
+}
+
+
