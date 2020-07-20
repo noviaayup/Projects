@@ -1,0 +1,64 @@
+Java code for the database operations
+
+//
+Upon successful completion of this subject students should be able to:
+
+1.	Describe the business application development process and its phases.
+2.	Analyse and determine user requirements and the context within which the system is being developed, in order to be able to prepare system requirements and analysis documentation.
+3.	Analyse a range of techniques and tools to carry out an the development of the proposed system.
+4.	Design a suitable system to meet the specified requirements through a range of O-O techniques.
+5.	Write software programs
+//
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+//import org.sqlite.SQLiteDataSource;
+
+import java.sql.SQLException;
+
+public class OrderItem {
+
+public static void main(String args[]) {
+	try {
+		Class.forName("com.mysql.cj.jdbc.Driver");     //加载MYSQL JDBC驱动程序   
+		//Class.forName("org.gjt.mm.mysql.Driver");
+		System.out.println("Success loading Mysql Driver!");
+		} catch (Exception e) {
+			System.out.print("Error loading Mysql Driver!");
+			e.printStackTrace();
+		}
+		try {
+			Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydatabase?serverTimezone=UTC", 
+					"root","12345" + "");
+			
+ 
+			System.out.println("Success connect Mysql server!");
+			
+			Statement stmt = connect.createStatement();
+			
+			//int rowsUpdated = stmt.executeUpdate("delete from OrderItem where name = 'Drink2'");
+			
+	
+			//int rowsUpdated6 = stmt.executeUpdate("insert into OrderItem(id,name,price)values(6,'Drink',3)");
+			
+			int rowsUpdated7 = stmt.executeUpdate("Update OrderItem Set name = 'Beef Burger' where id = 1");
+   	
+			
+			
+			
+			ResultSet rs = stmt.executeQuery("select * from OrderItem");
+			// user 为你表的名称
+			while (rs.next()) {
+				System.out.println(rs.getInt("id")+ " " + rs.getString("name")+ " " + rs.getString("price"));
+				
+			}
+    }catch (Exception e) {
+    	System.out.print("get data error!");
+    	e.printStackTrace();
+    }
+  }
+}
