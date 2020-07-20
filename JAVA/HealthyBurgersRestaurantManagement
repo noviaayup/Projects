@@ -1,0 +1,114 @@
+Computer science is becoming more and more embedded into our everyday lives. As the power of technology continues to grow and we discover new capabilities, the opportunities to make an impact with computer science are endless. Best of all, it’s never too late to get started in this ever-evolving field. If you’re looking to break into this field, you can get started today. From foundational courses to advanced degrees, we have a learning path that’s right for you.
+Software Development and its fundamentals are assigned to understand IT at its core. It aims to develop the understanding of object-oriented systems development from specifications to code writing and testing. Students develop the skills to write user specifications; the ability to model and design software systems according to industry standards; and the ability to code and build software applications. The subject also aims to develop students' teamwork skills by allowing them to work in project teams and use a real-life case study for software development.
+STM90979 Professional stream (IT): Enabling Enterprise Information Systems, Fundamentals of Software Development	 	 	, Database	 , LANS and Routing	 	 
+
+Get Started ▸ 3 steps to build a system in restaurant management 
+
+First Method: Calculate total cost in the items list
+
+ public float calculate (int[] list) {
+
+		int n;
+		
+		for(int index = 0; index < list.length; index++) {
+			
+			n = list[index];
+			
+			switch(n) {
+			case 1:
+				this.id = n;
+				this.name = "Beef Burger";
+				this.price = 8;
+				System.out.println("ID:"+id+" Name: "+name+" Price: "+price);
+				break;
+			case 2:
+				this.id = n;
+				this.name = "Chiken Burger";
+				this.price = 7;
+				System.out.println("ID:"+id+" Name: "+name+" Price: "+price);
+				break;
+			case 3:
+				this.id = n;
+				this.name = "Fish Burger";
+				this.price = 6;
+				System.out.println("ID:"+id+" Name: "+name+" Price: "+price);
+				break;
+			case 4:
+				this.id = n;
+				this.name = "Veggie Burger";
+				this.price = 5;
+				System.out.println("ID:"+id+" Name: "+name+" Price: "+price);
+				break;
+			case 5:
+				this.id = n;
+				this.name = "Potato Chips";
+				this.price = 8;
+				System.out.println("ID:"+id+" Name: "+name+" Price: "+price);
+				break;
+			case 6:
+				this.id = n;
+				this.name = "Drink";
+				this.price = 3;
+				System.out.println("ID:"+id+" Name: "+name+" Price: "+price);
+				break;
+			default:
+				System.out.println("Sorry,the item number you entered " +n + " is a  wrong number, please try again!");
+				break;
+			}
+			if (n>0 && n<7) {
+				totalPay += price;
+			}
+		}
+		return totalPay;
+	}
+
+Second method: Calculate Inventory
+
+public int[] calcInventory(int[] list) {
+		
+		int n;
+		
+		for(int index = 0; index < list.length; index++) {
+			
+			n = list[index];
+			
+			if(n>=1 && n<=6) {
+				in[n-1] -=1;
+			}else {
+				System.out.println("Sorry, the itemID is wrong!");
+			}
+		}
+		System.out.println("The quantity of inventory has been updated!");
+		return in;
+	}
+        
+Third method: Print Total Inventory
+
+public void printInventory(int[] in) {
+		System.out.println("The quantity of remaining inventory is: ");
+		for(int index = 0; index < in.length; index++) {
+			
+			switch(index) {
+			case 0:
+				System.out.println("Beef Burger: " + in[0]);
+				break;
+			case 1:
+				System.out.println("Chiken Burger: " + in[1]);
+				break;
+			case 2:
+				System.out.println("Fish Burger: " + in[2]);
+				break;
+			case 3:
+				System.out.println("Veggie Burger: " + in[3]);
+				break;
+			case 4:
+				System.out.println("Potato Chips: " + in[4]);
+				break;
+			case 5:
+				System.out.println("Drink: " + in[5]);
+				break;
+			default:
+				break;
+			}
+	}
+}
